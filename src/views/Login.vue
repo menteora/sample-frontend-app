@@ -5,15 +5,15 @@
         <v-card class="card--flex-toolbar">
           <v-toolbar card prominent>
             <v-toolbar-title color="primary">
-              <h1 class="font-weight-light">Accedi</h1>
+              <h1 class="font-weight-light green--text">Accedi</h1>
             </v-toolbar-title>
           </v-toolbar>
           <v-card-text>
-            <v-text-field v-model="username" label="Utente" required></v-text-field>
-            <v-text-field type="password" v-model="password" label="Password" required></v-text-field>
+            <v-text-field color="green" v-model="username" label="Utente" required></v-text-field>
+            <v-text-field color="green" type="password" v-model="password" label="Password" required></v-text-field>
           </v-card-text>
           <v-card-actions>
-            <v-btn block flat @click="login()">Accedi</v-btn>
+            <v-btn block flat class="green--text" @click="login()">Accedi</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
