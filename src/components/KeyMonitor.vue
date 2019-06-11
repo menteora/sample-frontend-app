@@ -5,6 +5,12 @@
 
 <script>
 export default {
+  props: {
+    suffix: {
+      type: Number,
+      default: 13
+    }
+  },
   data() {
     return {
       barcode: ""
@@ -12,9 +18,14 @@ export default {
   },
   mounted() {
     window.addEventListener("keypress", e => {
-      console.log(String.fromCharCode(e.keyCode));
+    console.log(this.suffix);
+    console.log(e.keyCode);
+      if (e.keyCode == this.suffix) {
+        this.$emit("scanned", this.barcode);
+        this.barcode = "";
+        return;
+      }
       this.barcode += String.fromCharCode(e.keyCode);
-      this.$emit('scanned', this.barcode)
     });
   }
 };
