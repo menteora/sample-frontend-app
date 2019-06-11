@@ -14,6 +14,7 @@ export default {
     window.addEventListener("keypress", e => {
       console.log(String.fromCharCode(e.keyCode));
       this.barcode += String.fromCharCode(e.keyCode);
+      this.$emit('scanned', this.barcode)
     });
   }
 };
