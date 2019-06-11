@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     onScan(value) {
-      this.barcode += value;
+      this.barcode = value;
     }
   }
 };
