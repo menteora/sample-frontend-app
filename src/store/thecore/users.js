@@ -1,4 +1,5 @@
 import axios from "@/plugins/axiosApi";
+const model = 'users'
 
 export default {
   namespaced: true,
@@ -16,7 +17,7 @@ export default {
     fetch: ({ commit, rootGetters }) => {
       const tokenApi = rootGetters["auth/token"];
       return axios
-        .get('/users', {
+      .get(`/${model}`, {
           headers: {
             "Accept": "application/json",
             "Content-Type": "application/json",
@@ -28,7 +29,7 @@ export default {
     // TO BE TESTED
     create: ({ commit }, data) => {
       return axios
-        .post('/users', data, {
+      .post(`/${model}`, data, {
           headers: {
             "Accept": "application/json",
             "Content-Type": "application/json"
@@ -39,7 +40,7 @@ export default {
     read: ({ commit, rootGetters }, id) => {
       const tokenApi = rootGetters["auth/token"];
       return axios
-        .get('/users/' + id , {
+      .get(`/${model}/${id}`, {
           headers: {
             "Accept": "application/json",
             "Content-Type": "application/json",

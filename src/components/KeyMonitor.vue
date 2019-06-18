@@ -1,7 +1,7 @@
 
-<template>
+<!--<template>
   <div>Barcode: {{barcode}}</div>
-</template>
+</template>-->
 
 <script>
 export default {
