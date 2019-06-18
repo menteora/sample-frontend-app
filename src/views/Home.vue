@@ -8,7 +8,7 @@
             <v-text-field
               label="Barcode"
               v-model="barcode"
-              @keypress.enter="onScan(barcode)"
+              @keypress.enter="stripChars(barcode)"
             ></v-text-field>
           </v-card-text>
           <!--<v-text-field label="Barcode" :value="barcode" :disabled="!nextbarcode.includes('barcode')"></v-text-field>
@@ -40,6 +40,11 @@ export default {
       barcode_history: []
     };
   },
+  /*watch: {
+    barcode: (value) => {
+      this.barcode = value.replace(/#|@/g, '');
+    }
+  },*/
   methods: {
     onScan(value) {
       //this[this.nextbarcode[0]] = value;
@@ -72,6 +77,10 @@ export default {
         this['barcode'] = value;
       }
       */
+    },
+    stripChars(barcode) {
+      barcode = barcode.replace(/#|@/g, '');
+      this.onScan(barcode);
     }
   }
 };
