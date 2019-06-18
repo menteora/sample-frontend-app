@@ -5,7 +5,7 @@
         <v-card class="card--flex-toolbar">
           <key-monitor @scanned="onScan" :suffix="13"></key-monitor>
           <v-card-text>
-            <v-text-field label="Barcode" v-model="barcode"></v-text-field>
+            <v-text-field label="Barcode" v-model="barcode" @keydown.enter.prevent="onScan(barcode)"></v-text-field>
           </v-card-text>
           <!--<v-text-field label="Barcode" :value="barcode" :disabled="!nextbarcode.includes('barcode')"></v-text-field>
           <v-text-field label="Barcode2" :value="barcode2" :disabled="!nextbarcode.includes('barcode2')"></v-text-field>-->
