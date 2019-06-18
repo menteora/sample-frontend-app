@@ -6,9 +6,13 @@
 <script>
 export default {
   props: {
+    prefix: {
+      type: Number,
+      default: 35
+    },
     suffix: {
       type: Number,
-      default: 13
+      default: 64
     }
   },
   data() {
@@ -18,14 +22,15 @@ export default {
   },
   mounted() {
     window.addEventListener("keypress", e => {
-    console.log(this.suffix);
-    console.log(e.keyCode);
-      if (e.keyCode == this.suffix) {
+      if (e.keyCode == this.prefix) {
+        this.barcode = "";
+      } else if (e.keyCode == this.suffix) {
         this.$emit("scanned", this.barcode);
         this.barcode = "";
-        return;
+      } else {
+        this.barcode += String.fromCharCode(e.keyCode);
+        console.log(this.barcode);
       }
-      this.barcode += String.fromCharCode(e.keyCode);
     });
   }
 };

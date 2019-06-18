@@ -3,9 +3,13 @@
     <v-layout align-center justify-center>
       <v-flex xs12 sm8 md6 lg6>
         <v-card class="card--flex-toolbar">
-          <key-monitor @scanned="onScan" :suffix="13"></key-monitor>
+          <key-monitor @scanned="onScan" :prefix="35" :suffix="64"></key-monitor>
           <v-card-text>
-            <v-text-field label="Barcode" v-model="barcode" @keydown.enter.prevent="onScan(barcode)"></v-text-field>
+            <v-text-field
+              label="Barcode"
+              v-model="barcode"
+              @keypress.enter.prevent="onScan(barcode)"
+            ></v-text-field>
           </v-card-text>
           <!--<v-text-field label="Barcode" :value="barcode" :disabled="!nextbarcode.includes('barcode')"></v-text-field>
           <v-text-field label="Barcode2" :value="barcode2" :disabled="!nextbarcode.includes('barcode2')"></v-text-field>-->
