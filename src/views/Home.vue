@@ -8,7 +8,7 @@
             <v-text-field
               label="Barcode"
               v-model="barcode"
-              @keypress.enter.prevent="onScan(barcode)"
+              @keypress.enter="onScan(barcode)"
             ></v-text-field>
           </v-card-text>
           <!--<v-text-field label="Barcode" :value="barcode" :disabled="!nextbarcode.includes('barcode')"></v-text-field>
