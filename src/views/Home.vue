@@ -79,7 +79,12 @@ export default {
       */
     },
     stripChars(barcode) {
-      barcode = barcode.replace(/#|@/g, '');
+      //barcode = barcode.replace(/#|@/g, '');
+      if (/#(.*)@/.test(barcode)){
+        let mached = barcode.match(/#(.*)@/)
+        barcode = mached[1]
+      }
+      //console.log(barcode)
       this.onScan(barcode);
     }
   }
