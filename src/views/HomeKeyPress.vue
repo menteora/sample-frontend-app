@@ -11,8 +11,6 @@
               @keypress.enter="stripChars(barcode)"
             ></v-text-field>
           </v-card-text>
-          <!--<v-text-field label="Barcode" :value="barcode" :disabled="!nextbarcode.includes('barcode')"></v-text-field>
-          <v-text-field label="Barcode2" :value="barcode2" :disabled="!nextbarcode.includes('barcode2')"></v-text-field>-->
         </v-card>
 
         <v-flex v-if="barcode_history" v-for="record in barcode_history" :key="record.id">

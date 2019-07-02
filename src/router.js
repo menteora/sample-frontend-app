@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import $store from '@/store';
-import Home from '@/views/Home.vue'
+import HomeWebSocket from '@/views/HomeWebSocket.vue'
+import HomeKeyPress from '@/views/HomeKeyPress.vue'
 import Users from '@/views/Users.vue'
 import User from '@/views/User.vue'
 import Login from '@/views/Login.vue'
@@ -13,7 +14,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: HomeWebSocket,
       beforeEnter: (to, from, next) => {
         $store.dispatch("auth/setTokenFromLocalStorage");
         if (!$store.getters["auth/isAuthenticated"]) {
