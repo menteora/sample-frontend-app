@@ -15,7 +15,7 @@ export default {
   },
   mounted() {
     this.$options.sockets.onmessage = event => {
-      var barcode = barcodeScanRegExp.exec(event.data)
+      var barcode = barcodeScanRegExp.exec(event.data)[1]
       this.barcode = barcode;
       console.log(barcode);
     };
