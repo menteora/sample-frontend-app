@@ -4,6 +4,8 @@
 </template>
 
 <script>
+var barcodeScanRegExp = /Barcode \((.*)\) \[(.*)\]/;
+
 export default {
   props: {},
   data() {
@@ -12,9 +14,10 @@ export default {
     };
   },
   mounted() {
-    this.$options.sockets.onmessage = data => {
-      this.barcode = data;
-      console.log(data);
+    this.$options.sockets.onmessage = event => {
+      var barcode = barcodeScanRegExp.exec(event.data)
+      this.barcode = barcode;
+      console.log(barcode);
     };
   }
 };
