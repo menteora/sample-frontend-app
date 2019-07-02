@@ -1,6 +1,5 @@
 
 <template>
-  <div>Hi {{barcode}}</div>
 </template>
 
 <script>
