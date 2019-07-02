@@ -5,12 +5,10 @@
         <v-card class="card--flex-toolbar">
           <key-monitor @scanned="onScan" :prefix="35" :suffix="64"></key-monitor>
           <v-card-text>
-            <v-text-field
-              label="Barcode"
-              v-model="barcode"
-              @keypress.enter="stripChars(barcode)"
-            ></v-text-field>
+            <v-text-field label="Barcode" v-model="barcode" @keypress.enter="stripChars(barcode)"></v-text-field>
           </v-card-text>
+          <!--<v-text-field label="Barcode" :value="barcode" :disabled="!nextbarcode.includes('barcode')"></v-text-field>
+          <v-text-field label="Barcode2" :value="barcode2" :disabled="!nextbarcode.includes('barcode2')"></v-text-field>-->
         </v-card>
 
         <v-flex v-if="barcode_history" v-for="record in barcode_history" :key="record.id">
@@ -78,9 +76,9 @@ export default {
     },
     stripChars(barcode) {
       //barcode = barcode.replace(/#|@/g, '');
-      if (/#(.*)@/.test(barcode)){
-        let mached = barcode.match(/#(.*)@/)
-        barcode = mached[1]
+      if (/#(.*)@/.test(barcode)) {
+        let mached = barcode.match(/#(.*)@/);
+        barcode = mached[1];
       }
       //console.log(barcode)
       this.onScan(barcode);

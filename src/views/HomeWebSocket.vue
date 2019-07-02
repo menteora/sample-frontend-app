@@ -8,11 +8,9 @@
             <v-text-field
               label="Barcode"
               v-model="barcode"
-              @keypress.enter="stripChars(barcode)"
+              @keypress.enter="onScan(barcode)"
             ></v-text-field>
           </v-card-text>
-          <!--<v-text-field label="Barcode" :value="barcode" :disabled="!nextbarcode.includes('barcode')"></v-text-field>
-          <v-text-field label="Barcode2" :value="barcode2" :disabled="!nextbarcode.includes('barcode2')"></v-text-field>-->
         </v-card>
 
         <v-flex v-if="barcode_history" v-for="record in barcode_history" :key="record.id">
@@ -63,23 +61,7 @@ export default {
         }
         this.barcode = "";
       });
-      /*
-      if (this['barcode'] != ''){
-        this['barcode2'] = value;
-      }else{
-        this['barcode'] = value;
-      }
-      */
     },
-    stripChars(barcode) {
-      //barcode = barcode.replace(/#|@/g, '');
-      if (/#(.*)@/.test(barcode)){
-        let mached = barcode.match(/#(.*)@/)
-        barcode = mached[1]
-      }
-      //console.log(barcode)
-      this.onScan(barcode);
-    }
   }
 };
 </script>
