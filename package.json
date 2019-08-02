@@ -5,12 +5,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "node deploy"
   },
   "dependencies": {
     "@mdi/font": "^3.6.95",
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
+    "sftp-sync-deploy": "^0.7.1",
     "vue": "^2.6.10",
     "vue-moment": "^4.0.0",
     "vue-native-websocket": "^2.0.13",
